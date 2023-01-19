@@ -36,7 +36,13 @@ if ! command -v rustup &> /dev/null; then
 fi
 
 if ! command -v deno &> /dev/null; then
-    curl -fsSL https://deno.land/x/install/install.sh | sh
+    cargo install deno --locked
+fi
+
+if ! command -v nvim &> /dev/null; then
+    wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
+    sudo dpkg -i nvim-linux64.deb
+    rm -f nvim-linux64.deb
 fi
 
 mkdir -p ~/projects/lp
