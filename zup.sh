@@ -46,7 +46,7 @@ if ! [ -d ~/projects/github/dotfiles ]; then
     git clone \
         --recurse-submodules \
         --shallow-submodules \
-        -j8 git@github.com:pseudocc/dotfiles.git ~/projects/github/dotfiles
+        -j8 https://github.com/pseudocc/dotfiles.git ~/projects/github/dotfiles
 
     source ~/projects/github/dotfiles/bootstrap.sh
 fi
