@@ -5,6 +5,7 @@ if ! [ -f /etc/sudoers.d/nopwd ]; then
     sudo tee /etc/sudoers.d/nopwd <<- EOF
 	%sudo ALL=(ALL:ALL) NOPASSWD: ALL
 	EOF
+    sudo chmod 0440 /etc/sudoers.d/nopwd
 fi
 
 if ! command -v git &> /dev/null; then
