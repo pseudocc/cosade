@@ -35,10 +35,6 @@ if ! command -v rustup &> /dev/null; then
     curl https://sh.rustup.rs -sSf | sh -s -- -y
 fi
 
-if ! command -v deno &> /dev/null; then
-    cargo install deno --locked
-fi
-
 if ! command -v nvim &> /dev/null; then
     wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
     sudo dpkg -i nvim-linux64.deb
@@ -54,6 +50,15 @@ if ! [ -d ~/projects/github/dotfiles ]; then
         --shallow-submodules \
         -j8 https://github.com/pseudocc/dotfiles.git ~/projects/github/dotfiles
 
-    source ~/projects/github/dotfiles/bootstrap.sh
+    bash ~/projects/github/dotfiles/bootstrap.sh
 fi
 
+source ~/.bashrc
+
+if ! command -v deno &> /dev/null; then
+    cargo install deno --locked
+fi
+
+if ! command -v tree-sitter &> /dev/null; then
+    cargo install tree-sitter-cli
+fi
