@@ -8,6 +8,12 @@ if ! [ -f /etc/sudoers.d/nopwd ]; then
     sudo chmod 0440 /etc/sudoers.d/nopwd
 fi
 
+if ! apt show xkb-rpd &> /dev/null; then
+    wget https://github.com/pseudocc/real-prog-dvorak/release/download/stable/xkb-rpd.deb \
+        && sudo dpkg -i xkb-rpd.deb
+    rm -f xkb-rpd.deb
+fi
+
 if ! command -v git &> /dev/null; then
     sudo apt install git -y
 fi
