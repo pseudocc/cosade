@@ -9,7 +9,7 @@ if ! [ -f /etc/sudoers.d/nopwd ]; then
 fi
 
 if ! apt show xkb-rpd &> /dev/null; then
-    wget https://github.com/pseudocc/real-prog-dvorak/release/download/stable/xkb-rpd.deb \
+    wget https://github.com/pseudocc/real-prog-dvorak/releases/download/stable/xkb-rpd.deb \
         && sudo dpkg -i xkb-rpd.deb
     rm -f xkb-rpd.deb
 fi
