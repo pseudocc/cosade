@@ -59,7 +59,10 @@ fi
 mkdir -p ~/projects/lp
 mkdir -p ~/projects/github
 
-if ! [ -d ~/projects/github/dotfiles ]; then
+if
+    ! [ -d ~/projects/github/dotfiles ] \
+    && ! [ -d ~/projects/github/dotfiles.git ];
+then
     git clone \
         --recurse-submodules \
         --shallow-submodules \
