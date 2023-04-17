@@ -42,9 +42,18 @@ if ! command -v rustup &> /dev/null; then
 fi
 
 if ! command -v nvim &> /dev/null; then
-    wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
-    sudo dpkg -i nvim-linux64.deb
-    rm -f nvim-linux64.deb
+    # extract nvim under ~/softwares/
+    if ! [ -d ~/softwares/ ]; then
+        mkdir -p ~/softwares/
+    fi
+    pushd ~/softwares/ || exit
+    wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+    chmod u+x nvim.appimage
+    ./nvim.appimage --appimage-extract
+    rm -f nvim.appimage
+    mv squashfs-root nvim
+    ln -s ~/softwares/nvim/AppRun ~/.local/bin/nvim
+    popd || exit
 fi
 
 mkdir -p ~/projects/lp
