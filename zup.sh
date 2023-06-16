@@ -14,6 +14,10 @@ if ! apt show xkb-rpd &> /dev/null; then
     rm -f xkb-rpd.deb
 fi
 
+if ! command -v curl &> /dev/null; then
+    sudo apt install curl -y
+fi
+
 if ! command -v git &> /dev/null; then
     sudo apt install git -y
 fi
